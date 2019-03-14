@@ -9,9 +9,16 @@ body, html {
     margin: 10px auto 0px auto;
 }
 
-#start-button {
-    display: block;
-    margin: 20px auto 0px auto;
+#controlButtons {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#reset, #start-button {
+    margin: 20px 5px 0px 5px;
 }
 
 button {
@@ -27,8 +34,28 @@ button:focus {
     outline: none;
 }
 
+#speedControl {
+    margin: 10px auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 30%;
+}
+
+#slow, #medium, #fast {
+    margin: 0px 5px;
+}
+
+.selected {
+    transform: scale(1.1);
+    color: white;
+    background-color: #9b0000;
+    box-shadow: 0px 0px 1px 0px #000000;
+}
+
 
 #generations {
     text-align: center;
     margin-top: 15px;
 }
+

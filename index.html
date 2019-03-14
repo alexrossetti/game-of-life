@@ -14,9 +14,20 @@
 
     <body>
 
-        <canvas width="600px" height="600px" id="board"></canvas>
-        <button id="start-button">Start</button>
+        <canvas width="500px" height="500px" id="board"></canvas>
+        
+        <div id="controlButtons">
+            <button id="reset">Reset</button>
+            <button id="start-button">Start</button>
+        </div>
+        
         <h4 id="generations">Generations: <span id="generation">0</span></h4>
+
+        <div id="speedControl">
+            <button id="slow" class="selected">Slow</button>
+            <button id="medium" class="">Medium</button>
+            <button id="fast" class="">Fast</button>
+        </div>
 
         <script src="./main.js"></script>
     </body>

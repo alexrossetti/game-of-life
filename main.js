@@ -1,5 +1,5 @@
-const gridSize = 600;
-const cellsInRow = 20;
+const gridSize = 500;
+const cellsInRow = 25;
 const cellSize = gridSize / cellsInRow;
 let gameRunning = false;
 let speed = 1000;
@@ -109,12 +109,56 @@ startButton.addEventListener('click', function(){
     startButton.innerHTML = gameRunning ? 'Stop' : 'Start';
 });
 
+
+addEventListener('click', function(e){
+    // update the speed of the generations, depending on which button was clicked
+    const newSpeed = e.target.id;
+
+    if (document.getElementById(newSpeed) === startButton){
+        return;
+    }
+
+    switch(newSpeed){
+        case 'slow':
+            speed = 1000;
+            document.getElementById(newSpeed).classList.add('selected');
+            document.getElementById('medium').classList.remove('selected');
+            document.getElementById('fast').classList.remove('selected');
+            break;
+        case 'medium':
+            speed = 100;
+            document.getElementById(newSpeed).classList.add('selected');
+            document.getElementById('slow').classList.remove('selected');
+            document.getElementById('fast').classList.remove('selected');
+            break;
+        case 'fast':
+            speed = 10;
+            document.getElementById(newSpeed).classList.add('selected');
+            document.getElementById('slow').classList.remove('selected');
+            document.getElementById('medium').classList.remove('selected');
+            break;
+        default:
+            break;
+    }
+
+});
+
+document.getElementById('reset').addEventListener('click', function(){
+    location.reload();    
+});
+
+
 // every time a new generation is created, increase the displayed number by one
 addIteration = () => {
     document.getElementById('generation').innerHTML = parseInt((document.getElementById('generation').innerHTML))+1;
 }
 
-
+resize = () => {
+    const board = document.getElementById('board');
+    const ctx = board.getContext('2d');
+    const grid = randomizeGrid();
+    generation(ctx, grid);
+}
 
 window.onload = () => {
     const board = document.getElementById('board');
